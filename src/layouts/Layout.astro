@@ -1,5 +1,8 @@
 ---
-const { titulo, descripcion } = Astro.props;
+const { titulo, descripcion, imagen = "/og.png" } = Astro.props;
+
+const canonica = new URL(Astro.url.pathname, Astro.site);
+const portada = new URL(imagen, Astro.site);
 ---
 
 <html lang="es">
@@ -9,6 +12,27 @@ const { titulo, descripcion } = Astro.props;
 		<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 		<title>{titulo}</title>
 		<meta name="description" content={descripcion} />
+		<link rel="canonical" href={canonica} />
+
+		<meta property="og:type" content="website" />
+		<meta property="og:site_name" content="Leonardo Murúa" />
+		<meta property="og:locale" content="es_AR" />
+		<meta property="og:title" content={titulo} />
+		<meta property="og:description" content={descripcion} />
+		<meta property="og:url" content={canonica} />
+		<meta property="og:image" content={portada} />
+		<meta property="og:image:type" content="image/png" />
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="630" />
+		<meta
+			property="og:image:alt"
+			content="Leonardo Murúa · Desarrollo web · murua.com.ar"
+		/>
+
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={titulo} />
+		<meta name="twitter:description" content={descripcion} />
+		<meta name="twitter:image" content={portada} />
 	</head>
 
 	<body>
