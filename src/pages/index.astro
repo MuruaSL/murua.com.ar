@@ -1,4 +1,5 @@
 ---
+import { getCollection } from "astro:content";
 import Layout from "../layouts/Layout.astro";
 import TarjetaTrabajo from "../components/TarjetaTrabajo.astro";
 
@@ -22,26 +23,9 @@ const servicios = [
 	},
 ];
 
-const trabajos = [
-	{
-		nombre: "Herrería WS Murúa",
-		gancho: "Una presencia digital para mostrar el trabajo detrás del oficio.",
-		descripcion:
-			"Sitio institucional para un taller de herrería de Córdoba, desarrollado para presentar sus servicios, mostrar trabajos realizados y facilitar el contacto directo con potenciales clientes.",
-		url: "https://herreria-ws-murua.vercel.app",
-		año: "2022",
-		imagen: "/images/herreria.webp",
-	},
-	{
-		nombre: "Kura",
-		gancho: "Un lugar para guardar lo importante.",
-		descripcion:
-			"Aplicación web de organización personal multipropósito, desarrollada para centralizar distintas herramientas en un mismo espacio. Combina organización, calendario, finanzas, estudio y otras herramientas, con conexiones a Google y calendarios. Cuenta con usuarios, autenticación e información personalizada, y funciona completamente desde la web.",
-		url: "https://mikura.vercel.app",
-		año: "2025",
-		imagen: "/images/kura.png",
-	},
-];
+const trabajos = (await getCollection("trabajos")).sort(
+	(a, b) => a.data.orden - b.data.orden
+);
 ---
 
 <Layout
@@ -88,10 +72,21 @@ const trabajos = [
 		</p>
 	</section>
 
-	<section>
+	<section id="trabajos">
 		<h2>Trabajos</h2>
 		<ul class="trabajos">
-			{trabajos.map((trabajo) => <TarjetaTrabajo {...trabajo} />)}
+			{
+				trabajos.map((trabajo) => (
+					<TarjetaTrabajo
+						nombre={trabajo.data.nombre}
+						gancho={trabajo.data.gancho}
+						año={trabajo.data.año}
+						portada={trabajo.data.portada}
+						portadaAlt={trabajo.data.portadaAlt}
+						href={`/trabajos/${trabajo.id}`}
+					/>
+				))
+			}
 		</ul>
 	</section>
 

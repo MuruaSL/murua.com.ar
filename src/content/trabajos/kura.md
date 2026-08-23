@@ -1,0 +1,28 @@
+---
+nombre: "Kura"
+gancho: "Un lugar para guardar lo importante."
+resumen: "Aplicación web de organización personal multipropósito: calendario, finanzas, estudio y otras herramientas en un mismo espacio, con ingreso con Google."
+url: "https://mikura.vercel.app"
+año: "2025"
+portada: "../../assets/trabajos/kura.png"
+portadaAlt: "Interfaz de la aplicación Kura"
+destacado: true
+orden: 2
+---
+
+Kura es una aplicación web de organización personal multipropósito, pensada para
+centralizar en un mismo espacio herramientas que normalmente están repartidas en varias
+apps distintas.
+
+## Qué incluye
+
+Combina organización general, calendario, finanzas, estudio y otras herramientas, con
+conexiones a Google y a calendarios externos. Cuenta con usuarios, autenticación e
+información personalizada, y funciona completamente desde la web — sin instalación.
+
+## Una aclaración
+
+A diferencia de un sitio institucional, Kura vive detrás de un login: cada usuario ve su
+propia información. Como muestra pública el alcance es limitado por diseño — es
+justamente lo que prueba: manejo de cuentas, datos por usuario e integraciones externas,
+no solo maquetado.

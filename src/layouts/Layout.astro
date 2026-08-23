@@ -33,6 +33,24 @@ const portada = new URL(imagen, Astro.site);
 		<meta name="twitter:title" content={titulo} />
 		<meta name="twitter:description" content={descripcion} />
 		<meta name="twitter:image" content={portada} />
+
+		<script type="application/ld+json" set:html={JSON.stringify({
+			"@context": "https://schema.org",
+			"@type": "Person",
+			"name": "Leonardo Murúa",
+			"url": "https://murua.com.ar",
+			"image": portada.toString(),
+			"jobTitle": "Desarrollador web",
+			"description": "Desarrollo sitios y aplicaciones web para negocios de Córdoba.",
+			"address": {
+				"@type": "PostalAddress",
+				"addressLocality": "Córdoba",
+				"addressRegion": "Córdoba",
+				"addressCountry": "AR",
+			},
+			"knowsAbout": ["Desarrollo web", "Astro", "JavaScript", "React"],
+			"sameAs": ["https://github.com/MuruaSL"],
+		})} />
 	</head>
 
 	<body>
@@ -48,7 +66,7 @@ const portada = new URL(imagen, Astro.site);
 		--gris: #5b616e;
 		--fondo: #fafaf9;
 		--borde: #e6e5e2;
-		--acento: #C1663A;
+		--acento: #A45631;
 	}
 
 	* {
@@ -109,5 +127,22 @@ const portada = new URL(imagen, Astro.site);
 
 	a {
 		color: var(--acento);
+	}
+
+	a,
+	.boton {
+		transition: border-color 0.15s, background-color 0.15s;
+	}
+
+	:focus-visible {
+		outline: 2px solid var(--acento);
+		outline-offset: 2px;
+		border-radius: 2px;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		* {
+			transition: none !important;
+		}
 	}
 </style>

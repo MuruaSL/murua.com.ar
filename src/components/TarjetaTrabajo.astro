@@ -1,16 +1,23 @@
 ---
-const { nombre, gancho, descripcion, url, año, imagen } = Astro.props;
+import { Image } from "astro:assets";
+
+const { nombre, gancho, año, portada, portadaAlt, href } = Astro.props;
 ---
 
 <li>
-	<a href={url}>
-		{imagen && <img src={imagen} alt={nombre} class="tarjeta-imagen" />}
+	<a href={href}>
+		<Image
+			src={portada}
+			alt={portadaAlt}
+			class="tarjeta-imagen"
+			widths={[300, 600]}
+			sizes="(min-width: 46rem) 20rem, 100vw"
+		/>
 		<div class="encabezado">
 			<h3>{nombre}</h3>
 			<span class="año">{año}</span>
 		</div>
 		<p class="gancho">{gancho}</p>
-		<p class="descripcion">{descripcion}</p>
 	</a>
 </li>
 
@@ -38,10 +45,6 @@ const { nombre, gancho, descripcion, url, año, imagen } = Astro.props;
 	}
 
 	.gancho {
-		margin-bottom: 0.5rem;
-	}
-
-	.descripcion {
 		color: var(--gris);
 		margin: 0;
 		font-size: 0.9375rem;
@@ -58,6 +61,7 @@ const { nombre, gancho, descripcion, url, año, imagen } = Astro.props;
 		height: 24rem;
 		object-fit: cover;
 		display: block;
+		border-radius: 0.5rem;
 		margin-bottom: 1rem;
 	}
 </style>

@@ -1,0 +1,134 @@
+---
+import { getCollection, render } from "astro:content";
+import { Image } from "astro:assets";
+import Layout from "../../layouts/Layout.astro";
+
+export async function getStaticPaths() {
+	const trabajos = await getCollection("trabajos");
+	return trabajos.map((trabajo) => ({
+		params: { slug: trabajo.id },
+		props: { trabajo },
+	}));
+}
+
+const { trabajo } = Astro.props;
+const { nombre, gancho, resumen, url, año, portada, portadaAlt } = trabajo.data;
+const { Content } = await render(trabajo);
+---
+
+<Layout titulo={`${nombre} · Leonardo Murúa`} descripcion={resumen}>
+	<article>
+		<p class="volver"><a href="/#trabajos">← Trabajos</a></p>
+
+		<p class="etiqueta">Caso de trabajo · {año}</p>
+		<h1>{nombre}</h1>
+		<p class="bajada">{gancho}</p>
+
+		{
+			url && (
+				<a class="boton" href={url} target="_blank" rel="noopener">
+					Ver el sitio
+				</a>
+			)
+		}
+
+		<Image src={portada} alt={portadaAlt} class="portada" widths={[400, 800, 1200]} sizes="(min-width: 46rem) 44rem, 100vw" />
+
+		<div class="cuerpo">
+			<Content />
+		</div>
+	</article>
+</Layout>
+
+<style>
+	.volver {
+		margin-bottom: 2rem;
+	}
+
+	.volver a {
+		font-size: 0.875rem;
+		color: var(--gris);
+	}
+
+	.etiqueta {
+		font-size: 0.8125rem;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+		color: var(--gris);
+		margin: 0;
+	}
+
+	.bajada {
+		font-size: 1.25rem;
+		color: var(--gris);
+		max-width: 34rem;
+	}
+
+	.boton {
+		display: inline-block;
+		margin: 0.5rem 0 2rem;
+		padding: 0.75rem 1.25rem;
+		background: var(--tinta);
+		color: var(--fondo);
+		text-decoration: none;
+		border-radius: 0.5rem;
+		font-size: 0.9375rem;
+	}
+
+	.boton:hover {
+		background: var(--acento);
+	}
+
+	.portada {
+		width: 100%;
+		height: auto;
+		border-radius: 0.75rem;
+		border: 1px solid var(--borde);
+		margin-bottom: 2.5rem;
+	}
+
+	.cuerpo :global(h2) {
+		font-size: 1.25rem;
+		font-weight: 600;
+		text-transform: none;
+		letter-spacing: normal;
+		color: var(--tinta);
+		margin: 2rem 0 1rem;
+	}
+
+	.cuerpo :global(p) {
+		color: var(--tinta);
+	}
+
+	.cuerpo :global(strong) {
+		color: var(--tinta);
+	}
+
+	.cuerpo :global(table) {
+		width: 100%;
+		border-collapse: collapse;
+		margin: 1.5rem 0;
+		font-size: 0.9375rem;
+	}
+
+	.cuerpo :global(th),
+	.cuerpo :global(td) {
+		text-align: left;
+		padding: 0.6rem 0.75rem;
+		border-bottom: 1px solid var(--borde);
+	}
+
+	.cuerpo :global(th) {
+		color: var(--gris);
+		font-weight: 600;
+	}
+
+	.cuerpo :global(ul) {
+		padding-left: 1.25rem;
+		color: var(--tinta);
+	}
+
+	.cuerpo :global(li) {
+		margin-bottom: 0.5rem;
+	}
+</style>
