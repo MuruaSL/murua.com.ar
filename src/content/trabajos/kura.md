@@ -8,6 +8,9 @@ portada: "../../assets/trabajos/kura.png"
 portadaAlt: "Interfaz de la aplicación Kura"
 destacado: true
 orden: 2
+testimonios:
+  - texto: "Excelente, me re sirve la página. Las nuevas funciones de finanzas son muy útiles: mi análisis financiero ya no vive en un Excel. ¡Qué grande!"
+    autor: "Abel, usuario de Kura"
 ---
 
 Kura es una aplicación web de organización personal multipropósito, pensada para
@@ -19,6 +22,12 @@ apps distintas.
 Combina organización general, calendario, finanzas, estudio y otras herramientas, con
 conexiones a Google y a calendarios externos. Cuenta con usuarios, autenticación e
 información personalizada, y funciona completamente desde la web — sin instalación.
+
+## Un caso de uso real
+
+Uno de los usuarios más activos de Kura entró específicamente por el módulo de finanzas,
+y hoy centraliza ahí todo su seguimiento financiero — algo que antes llevaba a mano en
+una planilla aparte.
 
 ## Una aclaración
 
