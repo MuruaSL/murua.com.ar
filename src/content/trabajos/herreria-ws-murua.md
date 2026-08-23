@@ -8,6 +8,11 @@ portada: "../../assets/trabajos/herreria-reja.webp"
 portadaAlt: "Rejas de hierro forjado sobre un cerramiento, trabajo de Herrería WS Murúa"
 destacado: true
 orden: 1
+testimonios:
+  - texto: "¡Muy buena! Ahora es livianita. La anterior era muy linda, pero era terrible: tardaba en abrir. Esta se abrió al toque, entré y ya me mostraba las fotos, todo divino."
+    autor: "Karina, dueña de Herrería WS Murúa"
+  - texto: "Está muy profesional."
+    autor: "Walter, dueño de Herrería WS Murúa"
 ---
 
 Herrería WS Murúa es un taller familiar de herrería y carpintería en Córdoba: rejas,

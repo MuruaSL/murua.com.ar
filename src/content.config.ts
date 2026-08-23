@@ -14,6 +14,14 @@ const trabajos = defineCollection({
 			portadaAlt: z.string(),
 			destacado: z.boolean().default(false),
 			orden: z.number(),
+			testimonios: z
+				.array(
+					z.object({
+						texto: z.string(),
+						autor: z.string(),
+					})
+				)
+				.optional(),
 		}),
 });
 

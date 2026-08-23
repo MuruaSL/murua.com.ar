@@ -12,7 +12,7 @@ export async function getStaticPaths() {
 }
 
 const { trabajo } = Astro.props;
-const { nombre, gancho, resumen, url, año, portada, portadaAlt } = trabajo.data;
+const { nombre, gancho, resumen, url, año, portada, portadaAlt, testimonios } = trabajo.data;
 const { Content } = await render(trabajo);
 ---
 
@@ -37,6 +37,19 @@ const { Content } = await render(trabajo);
 		<div class="cuerpo">
 			<Content />
 		</div>
+
+		{
+			testimonios && testimonios.length > 0 && (
+				<div class="testimonios">
+					{testimonios.map((t) => (
+						<blockquote>
+							<p>«{t.texto}»</p>
+							<cite>{t.autor}</cite>
+						</blockquote>
+					))}
+				</div>
+			)
+		}
 	</article>
 </Layout>
 
@@ -130,5 +143,31 @@ const { Content } = await render(trabajo);
 
 	.cuerpo :global(li) {
 		margin-bottom: 0.5rem;
+	}
+
+	.testimonios {
+		display: grid;
+		gap: 1rem;
+		margin-top: 2.5rem;
+	}
+
+	blockquote {
+		margin: 0;
+		padding: 1.25rem 1.5rem;
+		border-left: 2px solid var(--acento);
+		background: #fff;
+		border-radius: 0 0.5rem 0.5rem 0;
+	}
+
+	blockquote p {
+		margin: 0 0 0.5rem;
+		color: var(--tinta);
+		font-size: 1rem;
+	}
+
+	cite {
+		font-style: normal;
+		font-size: 0.875rem;
+		color: var(--gris);
 	}
 </style>
