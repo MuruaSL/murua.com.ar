@@ -3,8 +3,7 @@ import { getCollection } from "astro:content";
 import Layout from "../layouts/Layout.astro";
 import TarjetaTrabajo from "../components/TarjetaTrabajo.astro";
 
-const whatsapp = "https://wa.me/5493516996404";
-const email = "leonardo@murua.com.ar";
+import { WHATSAPP, EMAIL } from "../consts";
 
 const servicios = [
 	{
@@ -47,7 +46,7 @@ const trabajos = (await getCollection("trabajos")).sort(
 			Trabajo directamente con cada cliente, desde la idea inicial hasta la puesta en
 			marcha.
 		</p>
-		<a class="boton" href={whatsapp}>Escribime por WhatsApp</a>
+		<a class="boton" href={WHATSAPP}>Escribime por WhatsApp</a>
 	</section>
 
 	<section>
@@ -117,8 +116,8 @@ const trabajos = (await getCollection("trabajos")).sort(
 			cómo llevarla a la web.
 		</p>
 		<ul class="contacto">
-			<li>WhatsApp: <a href={whatsapp}>+54 9 351 699-6404</a></li>
-			<li>Mail: <a href={`mailto:${email}`}>{email}</a></li>
+			<li>WhatsApp: <a href={WHATSAPP}>+54 9 351 699-6404</a></li>
+			<li>Mail: <a href={`mailto:${EMAIL}`}>{EMAIL}</a></li>
 		</ul>
 	</section>
 </Layout>

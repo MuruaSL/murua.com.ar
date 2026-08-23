@@ -1,0 +1,85 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { WHATSAPP } from "../consts";
+---
+
+<Layout
+	titulo="Página no encontrada · Leonardo Murúa"
+	descripcion="Esta página no existe o se movió."
+>
+	<section class="error">
+		<p class="etiqueta">404</p>
+		<h1>Esta página no existe</h1>
+		<p class="bajada">
+			El link puede estar roto o la página se movió. Volvé al inicio o escribime si
+			buscabas algo puntual.
+		</p>
+		<div class="acciones">
+			<a class="boton" href="/">Volver al inicio</a>
+			<a class="boton-secundario" href={WHATSAPP}>Escribime por WhatsApp</a>
+		</div>
+	</section>
+</Layout>
+
+<style>
+	.error {
+		padding: 6rem 0;
+		text-align: left;
+	}
+
+	.etiqueta {
+		font-size: 0.8125rem;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+		color: var(--gris);
+		margin: 0;
+	}
+
+	h1 {
+		font-size: clamp(2rem, 6vw, 2.75rem);
+		font-weight: 600;
+		letter-spacing: -0.03em;
+		margin: 0.5rem 0 1.25rem;
+	}
+
+	.bajada {
+		font-size: 1.125rem;
+		color: var(--gris);
+		max-width: 32rem;
+	}
+
+	.acciones {
+		display: flex;
+		gap: 0.75rem;
+		flex-wrap: wrap;
+		margin-top: 1.5rem;
+	}
+
+	.boton {
+		display: inline-block;
+		padding: 0.75rem 1.25rem;
+		background: var(--tinta);
+		color: var(--fondo);
+		text-decoration: none;
+		border-radius: 0.5rem;
+		font-size: 0.9375rem;
+	}
+
+	.boton:hover {
+		background: var(--acento);
+	}
+
+	.boton-secundario {
+		display: inline-block;
+		padding: 0.75rem 1.25rem;
+		border: 1px solid var(--borde);
+		color: var(--tinta);
+		text-decoration: none;
+		border-radius: 0.5rem;
+		font-size: 0.9375rem;
+	}
+
+	.boton-secundario:hover {
+		border-color: var(--tinta);
+	}
+</style>

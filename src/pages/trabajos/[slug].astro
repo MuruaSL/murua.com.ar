@@ -2,6 +2,7 @@
 import { getCollection, render } from "astro:content";
 import { Image } from "astro:assets";
 import Layout from "../../layouts/Layout.astro";
+import { WHATSAPP } from "../../consts";
 
 export async function getStaticPaths() {
 	const trabajos = await getCollection("trabajos");
@@ -13,10 +14,11 @@ export async function getStaticPaths() {
 
 const { trabajo } = Astro.props;
 const { nombre, gancho, resumen, url, año, portada, portadaAlt, testimonios } = trabajo.data;
+const imagenCompartir = portada.src;
 const { Content } = await render(trabajo);
 ---
 
-<Layout titulo={`${nombre} · Leonardo Murúa`} descripcion={resumen}>
+<Layout titulo={`${nombre} · Leonardo Murúa`} descripcion={resumen} imagen={imagenCompartir}>
 	<article>
 		<p class="volver"><a href="/#trabajos">← Trabajos</a></p>
 
@@ -50,6 +52,11 @@ const { Content } = await render(trabajo);
 				</div>
 			)
 		}
+
+		<div class="cta">
+			<p>¿Necesitás algo parecido para tu negocio?</p>
+			<a class="boton" href={WHATSAPP}>Escribime por WhatsApp</a>
+		</div>
 	</article>
 </Layout>
 
@@ -169,5 +176,16 @@ const { Content } = await render(trabajo);
 		font-style: normal;
 		font-size: 0.875rem;
 		color: var(--gris);
+	}
+
+	.cta {
+		margin-top: 3rem;
+		padding-top: 2rem;
+		border-top: 1px solid var(--borde);
+	}
+
+	.cta p {
+		font-size: 1.0625rem;
+		margin-bottom: 1rem;
 	}
 </style>
