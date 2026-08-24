@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content";
 import Layout from "../layouts/Layout.astro";
 import TarjetaTrabajo from "../components/TarjetaTrabajo.astro";
+import Testimonio from "../components/Testimonio.astro";
 
 import { WHATSAPP, EMAIL } from "../consts";
 
@@ -25,6 +26,8 @@ const servicios = [
 const trabajos = (await getCollection("trabajos")).sort(
 	(a, b) => a.data.orden - b.data.orden
 );
+
+const testimonios = trabajos.flatMap((trabajo) => trabajo.data.testimonios ?? []);
 ---
 
 <Layout
@@ -47,6 +50,7 @@ const trabajos = (await getCollection("trabajos")).sort(
 			marcha.
 		</p>
 		<a class="boton" href={WHATSAPP}>Escribime por WhatsApp</a>
+		<p class="respuesta">Respondo el mismo día.</p>
 	</section>
 
 	<section>
@@ -89,6 +93,19 @@ const trabajos = (await getCollection("trabajos")).sort(
 		</ul>
 	</section>
 
+	{
+		testimonios.length > 0 && (
+			<section>
+				<h2>Lo que dicen</h2>
+				<div class="testimonios">
+					{testimonios.map((t) => (
+						<Testimonio texto={t.texto} autor={t.autor} />
+					))}
+				</div>
+			</section>
+		)
+	}
+
 	<section>
 		<h2>Sobre mí</h2>
 		<p>
@@ -113,7 +130,8 @@ const trabajos = (await getCollection("trabajos")).sort(
 		<p class="pregunta">¿Tenés una idea o necesitás una web?</p>
 		<p>
 			Contame qué necesitás. Podemos hablar del proyecto, pensar la solución y ver juntos
-			cómo llevarla a la web.
+			cómo llevarla a la web. Respondo el mismo día — si preferís, también podés
+			escribirme por mail.
 		</p>
 		<ul class="contacto">
 			<li>WhatsApp: <a href={WHATSAPP}>+54 9 351 699-6404</a></li>

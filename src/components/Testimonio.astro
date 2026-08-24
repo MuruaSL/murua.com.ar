@@ -1,0 +1,30 @@
+---
+const { texto, autor } = Astro.props;
+---
+
+<blockquote>
+	<p>«{texto}»</p>
+	<cite>{autor}</cite>
+</blockquote>
+
+<style>
+	blockquote {
+		margin: 0;
+		padding: 1.25rem 1.5rem;
+		border-left: 2px solid var(--acento);
+		background: #fff;
+		border-radius: 0 0.5rem 0.5rem 0;
+	}
+
+	blockquote p {
+		margin: 0 0 0.5rem;
+		color: var(--tinta);
+		font-size: 1rem;
+	}
+
+	cite {
+		font-style: normal;
+		font-size: 0.875rem;
+		color: var(--gris);
+	}
+</style>

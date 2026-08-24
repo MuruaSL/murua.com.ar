@@ -18,6 +18,7 @@ const { nombre, gancho, año, portada, portadaAlt, href } = Astro.props;
 			<span class="año">{año}</span>
 		</div>
 		<p class="gancho">{gancho}</p>
+		<span class="ver-mas">Ver el trabajo →</span>
 	</a>
 </li>
 
@@ -54,6 +55,14 @@ const { nombre, gancho, año, portada, portadaAlt, href } = Astro.props;
 		font-size: 0.8125rem;
 		color: var(--gris);
 		flex-shrink: 0;
+	}
+
+	.ver-mas {
+		display: inline-block;
+		margin-top: 0.75rem;
+		font-size: 0.875rem;
+		font-weight: 600;
+		color: var(--acento);
 	}
 
 	.tarjeta-imagen {
