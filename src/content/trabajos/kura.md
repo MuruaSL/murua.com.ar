@@ -4,8 +4,8 @@ gancho: "Un lugar para guardar lo importante."
 resumen: "Aplicación web de organización personal multipropósito: calendario, finanzas, estudio y otras herramientas en un mismo espacio, con ingreso con Google."
 url: "https://mikura.vercel.app"
 año: "2025"
-portada: "../../assets/trabajos/kura.png"
-portadaAlt: "Interfaz de la aplicación Kura"
+portada: "../../assets/trabajos/kura.webp"
+portadaAlt: "Kura: cuaderno digital con notas, categorías y balance del mes, sobre Next.js, TypeScript, Prisma, Supabase y Tailwind"
 destacado: true
 orden: 2
 testimonios:
@@ -22,6 +22,9 @@ apps distintas.
 Combina organización general, calendario, finanzas, estudio y otras herramientas, con
 conexiones a Google y a calendarios externos. Cuenta con usuarios, autenticación e
 información personalizada, y funciona completamente desde la web — sin instalación.
+
+**Stack:** Next.js 16, TypeScript, Prisma, Supabase, Tailwind. Funciona como PWA, así que
+también se puede instalar como app en el celular.
 
 ## Un caso de uso real
 
