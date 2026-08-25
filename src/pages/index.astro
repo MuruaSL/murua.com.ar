@@ -35,6 +35,11 @@ const testimonios = trabajos.flatMap((trabajo) => trabajo.data.testimonios ?? []
 	descripcion="Sitios y aplicaciones web para negocios de Córdoba. Rápidos, adaptados al celular y pensados para conseguir clientes."
 >
 	<section class="hero">
+		<svg class="hero-accent" viewBox="0 0 260 580" aria-hidden="true">
+			<path d="M 150 10 L 260 290 L 150 570" fill="none" stroke="#EAE8E1" stroke-width="18" stroke-linejoin="round" />
+			<path d="M 178 25 L 248 290 L 178 555" fill="none" stroke="#DEDCD2" stroke-width="18" stroke-linejoin="round" />
+			<path d="M 206 40 L 236 290 L 206 540" fill="none" stroke="var(--acento)" stroke-width="18" stroke-linejoin="round" opacity="0.65" />
+		</svg>
 		<p class="etiqueta">Desarrollo web</p>
 		<h1>Leonardo Murúa</h1>
 		<p class="bajada">
@@ -141,6 +146,22 @@ const testimonios = trabajos.flatMap((trabajo) => trabajo.data.testimonios ?? []
 </Layout>
 
 <style>
+	.hero-accent {
+		position: absolute;
+		top: 1rem;
+		left: calc(50% + 22.5rem);
+		width: 230px;
+		height: 560px;
+		pointer-events: none;
+		display: none;
+	}
+
+	@media (min-width: 80rem) {
+		.hero-accent {
+			display: block;
+		}
+	}
+
 	.etiqueta {
 		font-size: 0.8125rem;
 		letter-spacing: 0.1em;
