@@ -1,5 +1,6 @@
 ---
 nombre: "Herrería WS Murúa"
+queEs: "Sitio para un taller de herrería y carpintería de Córdoba, con catálogo por rubro."
 gancho: "De un sitio de 5,5 MB a uno de 1 MB, sin tocar el diseño de fondo."
 resumen: "Sitio institucional para un taller de herrería y carpintería de Córdoba: rediseño completo, optimización de imágenes y mejora del rendimiento."
 url: "https://herreria-ws-murua.vercel.app"

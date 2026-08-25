@@ -1,5 +1,6 @@
 ---
 nombre: "Kura"
+queEs: "App de organización personal: calendario, finanzas, estudio y más, en un solo lugar."
 gancho: "Un lugar para guardar lo importante."
 resumen: "Aplicación web de organización personal multipropósito: calendario, finanzas, estudio y otras herramientas en un mismo espacio, con ingreso con Google."
 url: "https://mikura.vercel.app"

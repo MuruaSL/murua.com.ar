@@ -6,6 +6,7 @@ const trabajos = defineCollection({
 	schema: ({ image }) =>
 		z.object({
 			nombre: z.string(),
+			queEs: z.string(),
 			gancho: z.string(),
 			resumen: z.string(),
 			url: z.string().url().optional(),
