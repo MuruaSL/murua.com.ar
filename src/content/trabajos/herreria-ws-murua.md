@@ -4,8 +4,8 @@ gancho: "De un sitio de 5,5 MB a uno de 1 MB, sin tocar el diseño de fondo."
 resumen: "Sitio institucional para un taller de herrería y carpintería de Córdoba: rediseño completo, optimización de imágenes y mejora del rendimiento."
 url: "https://herreria-ws-murua.vercel.app"
 año: "2022–2026"
-portada: "../../assets/trabajos/herreria-reja.webp"
-portadaAlt: "Rejas de hierro forjado sobre un cerramiento, trabajo de Herrería WS Murúa"
+portada: "../../assets/trabajos/herreria.webp"
+portadaAlt: "Sitio de Herrería WS Murúa en el navegador, con el rediseño 2026: hero con foto de reja y botón de presupuesto"
 destacado: true
 orden: 1
 testimonios:
