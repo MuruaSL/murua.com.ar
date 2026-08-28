@@ -46,7 +46,15 @@ const { Content } = await render(trabajo);
 			)
 		}
 
-		<Image src={portada} alt={portadaAlt} class="portada" widths={[400, 800, 1200]} sizes="(min-width: 46rem) 44rem, 100vw" />
+		<Image
+			src={portada}
+			alt={portadaAlt}
+			class="portada"
+			widths={[400, 800, 1200]}
+			sizes="(min-width: 46rem) 44rem, 100vw"
+			loading="eager"
+			fetchpriority="high"
+		/>
 
 		<div class="cuerpo">
 			<Content />
